@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link type="text/css" rel="stylesheet" href="/themes/humanity/skin.css" />
+</h:head>
+<h:body>
+	<h:outputStylesheet library="css" name="/css/default.css" />
+
+	<div id="header" class="ui-widget ui-widget-header">
+		<div id="logo">
+			<a href="/mychanel-web/index.xhtml"><img src="/mychanel-web/images/logo.png"
+				alt="Logo" /></a>
+		</div>
+	</div>
+
+	<div id="content">
+		<ui:insert name="content">Default content</ui:insert>
+	</div>
+	<!-- <div id="footer">Footer</div> -->
+</h:body>
+</html>

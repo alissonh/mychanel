@@ -1,0 +1,45 @@
+<ui:composition template="/WEB-INF/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+	<ui:define name="title">
+      MyChanel - Post
+    </ui:define>
+
+	<ui:define name="content">
+		
+		
+		<h:form enctype="multipart/form-data">
+			<ui:include src="menu.xhtml" />
+		
+           <br/>
+           <br/>
+            <p:growl id="messages" showDetail="true" />
+          
+           <br/>
+           <br/>
+           
+           <p:fileUpload fileUploadListener="#{fileMB.handleFileUpload}" />
+           
+           <br/>
+           <br/>
+          
+          <p:fileUpload value="#{fileMB.file}" mode="simple" />
+          
+          <br/>
+          <br/>
+          
+           <p:commandButton value="Send it :)" actionListener="#{fileMB.upload}"   ajax="false" />
+      </h:form>
+		
+		
+		
+		
+			
+	</ui:define>
+</ui:composition>
