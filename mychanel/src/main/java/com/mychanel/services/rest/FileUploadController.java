@@ -1,16 +1,13 @@
 package com.mychanel.services.rest;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.mychanel.repository.storage.MCStorage;
 
 @RestController
 public class FileUploadController {
@@ -29,10 +26,15 @@ public class FileUploadController {
             	System.out.print("Enviado arquivo " +  file.getOriginalFilename());
             	
             	byte[] bytes = file.getBytes();
-                BufferedOutputStream stream = 
-                        new BufferedOutputStream(new FileOutputStream(new File("c:/temp/" + name + "-uploaded.jpg")));
-                stream.write(bytes);
-                stream.close();
+               
+//            	BufferedOutputStream stream = 
+//                        new BufferedOutputStream(new FileOutputStream(new File("c:/temp/" + name + "-uploaded.jpg")));
+//                stream.write(bytes);
+//                stream.close();
+            	
+            	MCStorage storage = new MCStorage();
+            	String ret =storage.saveFile(bytes, file.getOriginalFilename());
+                System.out.println("Retorno = " + ret);
                 return "You successfully uploaded " + name + " into " + name + "-uploaded !";
             } catch (Exception e) {
                 return "You failed to upload " + name + " => " + e.getMessage();

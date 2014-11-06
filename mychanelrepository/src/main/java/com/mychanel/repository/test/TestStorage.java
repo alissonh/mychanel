@@ -9,9 +9,9 @@ public class TestStorage {
 		
 		MCStorage storage = new MCStorage();
 		
-		storage.saveFile("thaisteste");
+		//storage.saveFile("thaisteste");
 		
-		System.out.println("+++++OK salved sucessfully+++++");
+		//System.out.println("+++++OK salved sucessfully+++++");
 		
 		
 		storage.readFile();

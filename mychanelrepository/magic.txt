@@ -1,0 +1,36 @@
+http://256.com/sources/simplemagic/
+
+SimpleMagic - Simple Magic Content and Mime Type Detection Java Package 
+
+Here's a quick "magic" number package that I whipped up which allows content-type (mime-type) determination from files and byte arrays. It makes use of the magic(5) Unix content-type files to implement the same functionality as the Unix file(1) command in Java which detects the contents of a file. It uses either internal config files or can read /etc/magic, /usr/share/file/magic, or other magic(5) files and determine file content from File, InputStream, or byte[]. 
+• Download files:    local repository    central maven repository    github 
+• Documentation: ◦ HTML    PDF 
+◦ Javadocs
+◦ Change log file 
+
+• Support: ◦ Github issues 
+
+• Source control (Github):    browse code 
+
+Simple Code Sample 
+
+The following is a quick code sample to help you get started using the library for mime-type detection. 
+
+
+
+// create a magic utility using the internal magic file
+ContentInfoUtil util = new ContentInfoUtil();
+// if you want to use a different config file(s), you can load them by hand:
+// ContentInfoUtil util = new ContentInfoUtil("/etc/magic");
+...
+ContentInfo info = util.findMatch("/tmp/upload.tmp");
+// or
+ContentInfo info = util.findMatch(inputStream);
+// or
+ContentInfo info = util.findMatch(contentByteArray);
+// display content type information
+if (info == null) {
+   System.out.println("Unknown content-type");
+} else {
+   // other information in ContentInfo type
+   System.out.println("Content-type is: " + info.getName());
