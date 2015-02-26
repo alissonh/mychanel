@@ -10,10 +10,9 @@ public class User {
 	
 	@Id 
 	private String id; 
-	String username; 
-	String password;
-	Date datanasc;
-	
+	private String username; 
+	private String password;
+	private Date datanasc;	
 	private String email ; 
 	
 	public String getEmail() {

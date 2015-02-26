@@ -10,18 +10,18 @@ public class TestUser {
 	public static void main(String[] args) {
 		
 		
-		UserRepository ur = new UserRepository();
-		
-		User user = new User();
-		
-		user.setDatanasc(new Date());
-		user.setFirstName("Alisson");
-		user.setLastName("Ricardo");
-		user.setPassword("1234");
-		user.setEmail("alisson@gmail.com");
-		ur.persist(user);
-		
-		System.out.println("---------------OK -------------------");
+	UserRepository ur = new UserRepository();
+//		
+//		User user = new User();
+//		
+//		user.setDatanasc(new Date());
+//		user.setFirstName("Ursinho");
+//		user.setLastName("Grounf");
+//		user.setPassword("1234");
+//		user.setEmail("alisson@gmail.com");
+//		ur.persist(user);
+//		
+//		System.out.println("---------------OK -------------------");
 		
 		ur.findAll();
 		

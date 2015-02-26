@@ -1,0 +1,44 @@
+<ui:composition template="/WEB-INF/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<link href="Content/video-js.css" rel="stylesheet" />
+<script src="Scripts/video.js"></script>
+
+
+	<ui:define name="title">
+      MyChanel - Post
+    </ui:define>
+
+	<ui:define name="content">
+		
+		
+		<h:form>
+			<ui:include src="menu.xhtml" />
+		
+           <br/>
+           <br/>
+          
+              <video id="my_video_1" class="video-js vjs-default-skin" controls="controls"  preload="auto" width="640" height="264" poster="http://localhost:8080/mychanel/image/767168736cb6d0891d97767819ac1492a1931b47c265185cd"  data-setup="{}">
+	 
+					 <source src="http://localhost:8080/mychanel/stream/18535456565ce33a58286bc8f5850bc038202d409700bd357b" type='video/mp4'>
+					 </source>
+ 
+             </video>
+          
+          
+          <br/>
+          <br/>
+          
+           
+      </h:form>
+		
+		
+		
+		
+			
+	</ui:define>
+</ui:composition>

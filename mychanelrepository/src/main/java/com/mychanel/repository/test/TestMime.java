@@ -11,7 +11,7 @@ public class TestMime {
 		MCStorage storage = new MCStorage();
 		
 		
-		System.out.println( "Mime Type eh " + storage.getMagicMimeType("c:/temp/franga.avi"));
+	//	System.out.println( "Mime Type eh " + storage.getMagicMimeType("c:/temp/franga.avi"));
 
 		//mpeg = mp3
 		//mp4a = mp4

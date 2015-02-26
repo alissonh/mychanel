@@ -1,6 +1,9 @@
 package com.mychanel.web.mb;
 
- import javax.faces.bean.ManagedBean;
+ import java.io.Serializable;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import org.springframework.web.client.RestTemplate;
@@ -12,12 +15,22 @@ import com.mychanel.web.http.RestClient;
 
 @ManagedBean
 @ViewScoped
-public class UserMB {
+public class UserMB implements Serializable{
 
+	private Person user = new Person();
 	
-	public void edit(){
-		System.out.println(" edit a parada");
+	
+public Person getUser() {
+		return user;
 	}
+
+	public void setUser(Person user) {
+		this.user = user;
+	}
+
+public void edit(){
+		System.out.println(" edit a parada");
+}
 	
 public void logout(){
 	System.out.println(" logout a parada");
@@ -58,6 +71,42 @@ public void test(){
 }
 
 
+
+public String insertUser(){
+	
+	RestTemplate restTemplate = new RestTemplate();		
+	Gson gson = new Gson();   
+	String gsonStr= gson.toJson(this.user);   	
+	System.out.println(" + + + + O GSON da parada eh ++++++ ");	
+	System.out.println(gsonStr);
+	
+	//(Deserialization)
+	//BagOfPrimitives obj2 = gson.fromJson(json, BagOfPrimitives.class);   
+	
+	try{
+	   RestClient rest = new RestClient();
+	   String ret =rest.doPost("/service/insertnewuser/", gsonStr);
+	   System.out.println(" ===retorno ====== ");
+	   System.out.print(ret);
+	   System.out.println(" ============= ");
+	  
+	    Person pepe = gson.fromJson(ret, Person.class);	  
+	    System.out.println("Parsed JSON ->" + pepe.getNome());    
+	   
+	
+	}
+	catch(Exception erro){
+		System.out.print("Erro do lado client:" + erro.toString());
+		
+	}
+	
+	new FacesMessage(FacesMessage.SEVERITY_INFO,    "Hello Hello ;]","Congratulations , now you have your Chanel !");
+	 
+	return "/index.jsf?faces-redirect=true" ;
+}
+
+
+
 public void testPost(){
 	
 	 RestTemplate restTemplate = new RestTemplate();
@@ -91,11 +140,14 @@ public void testPost(){
 	
 	}
 	catch(Exception erro){
-		System.out.print("Erro do lado client:" + erro.toString());
+		System.out.print("Erro do lado cliente :" + erro.toString());
 		
 	}
 	
 	
 }
+
+
+
 
 }

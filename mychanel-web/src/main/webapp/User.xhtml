@@ -12,21 +12,65 @@
     </ui:define>
 
 	<ui:define name="content">
-		<h:form id="f_edit">
+		<h:form id="f_user">
 			<ui:include src="menu.xhtml" />
 
 			<div id="div_edit" style="margin: 15px 5px;">
 				<p:messages id="messages" closable="true" />
 
-				   <p:commandButton id="bt_s" value="Test Get" update="@form"
-							actionListener="#{userMB.test}"	/>
+				   
+				   
+				<p:panel id="p_edit"
+					header="New User">
+					<p:focus context="p_edit" />
+
+					<h:panelGrid columns="2" cellpadding="5">
+
+						<h:outputLabel for="email" value="Email"
+							styleClass="required-field" />
+							
+						<p:inputText id="email" value="#{userMB.user.email}"
+							label="My Email" mask="*?****" required="true"
+							requiredMessage="Please , insert your email" />
+							
+							
+						<h:outputLabel for="userName" value="User Name"
+							styleClass="required-field" />
+							
+						<p:inputText id="userName" value="#{userMB.user.username}"
+							label="User Name" mask="*?****" required="true"
+							requiredMessage="Please , insert your UserName" />	
+					    
+					    
+					    <h:outputLabel for="pass" value="Password"
+							styleClass="required-field" />
+							
+						<p:password id="pass" value="#{userMB.user.password}"
+							label="Password" mask="*?****" required="true"
+							requiredMessage="Please , type a password" />	
+					    
+					    
+					    
+					    <h:outputLabel for="firstname" value="Firt Name"
+							styleClass="required-field" />
+							
+						<p:inputText id="firstname" value="#{userMB.user.nome}"
+							label="Your Name" mask="*?****" required="true"
+							requiredMessage="Please , type a name ;) " />	
+					    
+					    		
+							
+				   </h:panelGrid>			
+				   
+				</p:panel>   
+				   
 				</div>
 				
 				
 				<div id="div_edit2" style="margin: 15px 5px;">				
 
-				   <p:commandButton id="bt_s2" value="Test Super Post :)" update="@form"
-							actionListener="#{userMB.testPost}"	/>
+				   <p:commandButton id="bt_s2" value="Create MyChanel :)" 
+							actionListener="#{userMB.insertUser}" ajax="false"	/>
 				</div>
 
 		</h:form>
