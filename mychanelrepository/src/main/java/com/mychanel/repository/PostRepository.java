@@ -40,4 +40,20 @@ public class PostRepository {
 			
 		System.out.println("4. Number of user = " + listPosts.size());
 	}
+	
+	
+	public List<Post> findAll(String id){
+		List<Post> listPosts = mongoOperation.findAll(Post.class); 
+		
+		for(Post p:listPosts){
+			System.out.println(p.getFileName() + " --- ID-->" +  p.getId());
+			
+		}
+			
+			
+		System.out.println("4. Number of user = " + listPosts.size());
+		return listPosts;
+		
+	}
+	
 }
